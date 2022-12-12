@@ -1,20 +1,9 @@
 #!/bin/bash
-factorial(){
-    product=$1
-    if((product <= 2)); then
-        echo $product
-    else
-        f=$((product -1))
-        f=$(factorial $f)
-        f=$((f*product))
-        echo $f
-fi
-}
 
-echo "Enter the number:"
+echo "Enter a number"
 read num
-if((num == 0)); then
-    echo 1
-else
-    factorial $num
-fi
+factorial=1
+for((i=2;i<=num;i++)){
+  factorial=$((factorial * i))
+}
+echo $factorial
